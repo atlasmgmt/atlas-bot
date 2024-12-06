@@ -37,7 +37,7 @@ class VerifyHere(discord.ui.View):
             if find:
                 user = await rclient.get_user(find.get("roblox_id"))
                 embed = discord.Embed(title=f"Account Found!", description=f"> A previous record for your account has been found, would you like to verify as **{user.name}?**", color=discord.Color.dark_embed())
-                async with  aiohttp.ClientSession() as session:
+                async with aiohttp.ClientSession() as session:
                     async with session.get(f"https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds={user.id},0&size=100x100&format=Png&isCircular=true") as resp:
                         if resp.status == 200:
                             data = json.loads(await resp.text())
@@ -190,7 +190,7 @@ class Username(discord.ui.Modal):
         view = Done(code=random_string, user=user.name, interaction=interaction, mongo=self.mongo)
         embed = discord.Embed(color=discord.Color.dark_embed(), description=f"Hello **{interaction.user.name},** to verify ownership of the account ``{self.name.value}``, please put the provided code in the description of your roblox account, after that click the **Done** button\n\n **Account Information**\n> **Username:** ``{self.name.value}``\n> **User ID:** ``{user.id}``\n> **Profile Link:** https://roblox.com/users/{user.id}/profile\n\n**Enter This Code:**\n```{random_string}```")
 
-        async with  aiohttp.ClientSession() as session:
+        async with aiohttp.ClientSession() as session:
             async with session.get(f"https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds={user.id},0&size=100x100&format=Png&isCircular=true") as resp:
                 if resp.status == 200:
                     data = json.loads(await resp.text())
