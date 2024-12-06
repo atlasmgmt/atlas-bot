@@ -28,7 +28,7 @@ async def get_module_configuration(guild_id: int, module_name: str):
                 return data
         return False
 
-    except:
+    except Exception:
         return False
 
 async def create_module_configuration(guild_id: int, module_name: str):

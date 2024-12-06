@@ -69,7 +69,7 @@ class API(Cog):
                     if member:
                         if member.guild_permissions.manage_guild:
                             return JSONResponse(content={"allowed": True}, status_code=200)
-            except:
+            except Exception:
                 return JSONResponse(status_code=200)
                         
                 

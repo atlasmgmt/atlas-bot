@@ -248,7 +248,7 @@ class VerificationCog(Cog):
                 content = find["VerifyModule.content"]
                 embed = discord.Embed.from_dict(content)
                 return await panel_channel.send(view=VerifyHere(mongo=self.bot.mongo), embed=embed)
-            except:
+            except Exception:
                 return await panel_channel.send(view=VerifyHere(mongo=self.bot.mongo), content=f"Gain access to **{ctx.guild.name}** by clicking the below button.")
         else:
             return await panel_channel.send(view=VerifyHere(mongo=self.bot.mongo), content=f"Gain access to **{ctx.guild.name}** by clicking the below button.")

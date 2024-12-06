@@ -19,7 +19,7 @@ async def get_guild_configuration(mongo_connection, guild_id):
         if insert:
             return insert
         return False
-    except:
+    except Exception:
         return False
 
     
